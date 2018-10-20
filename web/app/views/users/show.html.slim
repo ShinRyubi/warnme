@@ -1,12 +1,25 @@
 .p-4
-  = @user.name
-  = @user.address
-
-
-  = simple_form_for(@user) do |f|
-
-    .form-inputs
-      = f.input :tag_list, label: t('tags')
+  .card
+    .p-4.text-center
+      = image_tag @user.photo, size: 50, class: 'rounded-circle img-fluid' 
+      br
+      = @user.name
+      br
+      = @user.address
       
-    .form-actions
-      = f.button :submit
+
+      = simple_form_for(@user) do |f|
+
+        .form-inputs
+          = f.input :tag_list, label: t('items')
+          
+        .form-actions
+          = f.button :submit, class: 'btn btn-primary'
+
+      br
+      - if @tags.present?
+        b Items
+        br
+        - @tags.each do |t|
+          = t.name
+          | &nbsp; &nbsp;

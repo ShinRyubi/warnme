@@ -1,6 +1,7 @@
 .row
   .col-12
-    = image_tag incident.photo, class: 'img-fluid rounded'
+    - if incident.photo.present?
+      = image_tag incident.photo, class: 'img-fluid rounded'
   
   .col-12
     b= link_to incident.name, incident_path(incident)

@@ -62,6 +62,54 @@ In browser, open [http://localhost:3000](http://localhost:3000)
 
 - [Awesome Meta and Manifest](https://github.com/gokulkrishh/awesome-meta-and-manifest)
 
+
+
+
+# Info
+
+- It should help people understand the different kinds of preparedness for each disaster. What are the main threats for each? 
+- For example, in an impending storm, people tend to think about the wind, but it’s often the storm surge or flooding that hold the potential for greatest harm; when a volcano erupts, it’s not just the lava. It’s the ash that falls, and the noxious gases in the air, too.
+
+- Help people know whether they are likely to need a go-bag for evacuating, or a kit and plan for sheltering in place, and what should go in each. 
+- Help them figure out what order to do things in. Illustrate and explain each disaster type with one or more NASA images, videos, or data visualizations, so that people genuinely understand what they are preparing for. 
+- It still can be used when the internet goes down. 
+- You might have it prompt people to think about their own special-need items and things they might be forgetting – and have it warn them if their virtual go-bag gets too heavy to carry!
+
+
+# Gems Added
+
+- Devise + Authtrail? rails generate devise:views rails g devise User devise.rb via get
+- Simple Form  rails generate simple_form:install --bootstrap
+- Active storage rails active_storage:install + direct_upload.js copy
+- Font Awesome
+- Bootstrap 4.1.3
+- Toaster
+- Slim Rails
+- Authtrail?
+- geocoder
+- gmaps4rails
+- login activities
+
+
+# Localization
+- add into application.rb and application_controller.rb and scope in routes
+
+# Incident types
+- shelter
+- battle
+- typhoon
+- flooding
+- volcano
+- tsunami
+- tornado 
+- heatwave
+- earthquake
+- supplies
+- landslide
+- forest_fire
+- 
+
+
 #### License
 
 MIT © [Gokulakrishnan](https://github.com/gokulkrishh)

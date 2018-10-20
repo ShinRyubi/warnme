@@ -1,6 +1,6 @@
 ---
-en:
-  Welcome to DIRA: Welcome to DIRA
+tl:
+  Welcome to DIRA: Kumusta!
   devise:
     confirmations:
       new:
@@ -38,14 +38,12 @@ en:
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
-  hello: Hello world
   helpers:
     delete_this: Delete this
     successfully_deleted: Successfully deleted
     successfully_updated: Successfully updated
-  login: Login
-  logout: Logout
-  sign_up: Sign up
-  signup: Sign up
-  users: Users
-  pictures: Pictures
+  login: Mag Login
+  logout: Mag Logout
+  sign_up: Mag Sign up
+  signup: Mag Sign up
+  users: Mga User

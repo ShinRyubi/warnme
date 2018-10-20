@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
 
   def show
-    
+    @tags = User.all.tag_counts_on(:tags)    
   end
 
 

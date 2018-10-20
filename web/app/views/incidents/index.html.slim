@@ -11,7 +11,10 @@
           = f.input :name
           = f.input :content
           = f.input :address
+        
           /= f.input :photo, label: false
+          = f.hidden_field :latitiude, value: 14.567530
+          = f.hidden_field :longitude, value: 121.017838
           = f.hidden_field :user_id, value: current_user.id
           = f.hidden_field :user_pic, value: current_user.photo
           /= f.select 

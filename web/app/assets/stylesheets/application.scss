@@ -7,11 +7,11 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin:400,600');
 
 body {
-  background-color: #e0f3ff;
   font-family: 'Cabin', sans-serif;
 }
 
 a {
+  color: white;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   display: inline-block;
@@ -30,7 +30,8 @@ footer {
 
 
 nav.navbar {
-  background-color: #e0f3ff;
+  //background-color: #e0f3ff;
+  background-color: #00A088;
   padding-top: 5px;
   padding-bottom: 5px;
   -webkit-transition: all 0.5s;
@@ -219,15 +220,6 @@ nav.navbar .navbar-toggler span {
   }
 }
  
-/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-// @media (min-width: 768px) {  
-//   .small {font-size: 13px;}
-//   .card-columns {
-//       -webkit-column-count:2;
-//       -moz-column-count:2;
-//       column-count:2;
-//   }
-// } 
 
 
 /* Large devices (desktops, 992px and up) */

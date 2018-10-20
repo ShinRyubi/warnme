@@ -1,6 +1,6 @@
 .pb-4
-  nav.navbar.fixed-top.navbar-expand-lg.navbar-light
-    = link_to 'DIRA', root_path
+  nav.navbar.fixed-top.navbar-expand-lg.navbar-dark
+    = link_to 'Warn Me', root_path
 
     = link_to '#', data: {toggle: "collapse", target: "#nav_content"}, aria: {controls: "nav_content", expanded: "false"}, class: 'navbar-toggler navbar-toggler-right'
       span
@@ -27,7 +27,7 @@
 
       ul.navbar-nav
         li.nav-item
-          = link_to 'My Profile', user_path(current_user)
+          = link_to 'My Profile', user_path(current_user), class: "nav-link"
 
         li.nav-item
           = link_to t('logout'), destroy_user_session_path, class: "btn btn-primary"

@@ -1,6 +1,6 @@
 .p-4
   .text-center
-    h4 Welcome to DIRA
+    h4 Warn Me!
     br
 
   - if current_user.present?
@@ -10,10 +10,14 @@
         = f.input :content, label: false
         = f.hidden_field :user_id, value: current_user.id
         = f.hidden_field :user_pic, value: current_user.photo
+        - @incidents = Incident.all
+        = f.input :incident_id, collection: @incidents, label_method: :name, value_method: :id, label: 'Incident'
+
         
       .form-actions
-        = f.button :submit
+        = f.button :submit, class: 'btn btn-primary'
 
   hr
   .posts
-    = render partial: 'posts/post', collection: @posts, as: :post
+    .card-columns
+      = render partial: 'posts/post', collection: @posts, as: :post
