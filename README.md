@@ -1,23 +1,18 @@
-### <p align="center"><img width="150px" height="150px" src="https://raw.githubusercontent.com/gokulkrishh/demo-progressive-web-app/master/images/icons/android-chrome-192x192.png"></p>
+# WarnMe
+### A Social Disaster Relief App
 
-# [Progressive Web Application](https://demopwa.com/)
+* This app is divided into PWA offline demo and Rails online demo
 
-*A demo for progressive web application with features like offline, push notifications, background sync etc,*
+### [Live](https://warnme.sora.asia/)
 
-### [Live](https://demopwa.com/)
-
-### Installation
+### Installation for PWA demo
 
 #### `Step 1` - clone the repo
   
-```bash
-$ git clone https://github.com/gokulkrishh/demo-progressive-web-app
-```
-
 #### `Step 2` - cd in the repo
 
 ```bash
-$ cd demo-progressive-web-app
+$ cd warnme
 ```
 
 #### `Step 3` - install dependencies
@@ -33,6 +28,9 @@ $ npm run start
 ```
 
 In browser, open [http://localhost:3000](http://localhost:3000)
+
+
+------
 
 ## Main Features
 
@@ -52,15 +50,7 @@ In browser, open [http://localhost:3000](http://localhost:3000)
 
 - [x] - Background Sync
 
-- [x] - Web Share API
 
-### Get started with PWA Development
-
-- [Codelabs](https://pwa.tips/codelabs)
-
-### List of Progressive Web Apps
-
-- [PWA Rocks](https://pwa.rocks)
 
 ### References
 

@@ -1,0 +1,34 @@
+
+.row
+  .col-12.col-lg-2
+    .pb-2
+      .d-flex.justify-content-between.align-items-start.flex-wrap
+        - if post.user_pic.present?
+          - if post.user_id.present?
+            = image_tag(post.user_pic, size: 100, class: "img-fluid rounded-circle")
+          - else
+            = image_tag(post.user_pic, size: 100, class: "img-fluid rounded-circle")
+    
+        small on #{post.updated_at.strftime("%m/%d/%y at %l:%M %p")}
+
+  .col-12.col-lg-10
+    - if post.content.include? "youtube.com" 
+      .embed-responsive.embed-responsive-16by9
+        = raw youtube_embed(announcement.content)
+
+    - elsif post.content.include? "youtu.be"
+      .embed-responsive.embed-responsive-16by9
+        = raw youtube_embed(post.content)
+    
+    - if I18n.locale == :en
+      = post.content.html_safe
+    - else
+      = post.content_local.html_safe
+    /- if post.content_local.present?
+      = post.content_local.html_safe
+    /- else
+      = post.content.html_safe
+    br
+    
+    = link_to post.incident.name, incident_path(id: post.incident.id)
+hr

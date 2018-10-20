@@ -1,0 +1,171 @@
+.p-4
+  h4 = @incident.name
+
+  /= link_to 'Edit', edit_incident_path
+  = simple_form_for @incident, method: :patch, remote: true do |f|
+    b Add images
+    = f.label 'Upload image', required: false 
+    br
+    = f.file_field :images, multiple: true, direct_upload: true
+    = f.submit
+    
+
+  .row
+    .col-12.col-lg-6
+      - if @incident.present? 
+        - if @incident.photo.present?
+          - if ["youtube.com", "youtu.be"].any? { |z| @incident.photo.include? z }
+            .embed-responsive.embed-responsive-16by9
+              = raw youtube_embed(@incident.photo)
+          - else
+            .text-center
+              = image_tag(@incident.photo, class: "img-fluid rounded", alt: @incident.name)
+          
+          - if @incident.images.present?
+            .pt-4
+              .row
+                .col-12
+                  = link_to '#', data: {toggle: "modal", target: "#images"}
+                    
+                    .d-flex.justify-content-between.flex-wrap
+                      - @incident.images.each do |image|
+                        = image_tag image, size: 50
+                  
+        - else
+          - if @incident.images.present?
+            - @image = @incident.images.first
+            = image_tag(@image, class: "img-fluid rounded")
+
+            .pt-4
+              .row
+                .col-12
+                  = link_to '#', data: {toggle: "modal", target: "#images"}
+                    .d-flex.justify-content-between.flex-wrap
+                      - @@incident.images.each do |image|
+                        = image_tag image, size: 50
+
+
+      /- if 
+      = @incident.content
+
+
+
+    .col-12.col-lg-6
+      = render partial: 'map'
+
+#images.modal.fade aria-hidden="true" aria-labelledby="pics" role="dialog" tabindex="-1" 
+  .modal-dialog.modal-lg role="document" 
+    .modal-content    
+      .modal-header 
+        = t 'pictures'
+        .pull-right
+          button.close aria-label="Close" data-dismiss="modal" type="button" 
+            span aria-hidden="true" &times;
+
+
+      .modal-body
+        #image_controls.carousel.slide data-ride="carousel"
+          .carousel-inner
+            - if @incident.images.present?
+              .carousel-item.active
+                - image = @incident.images.first
+                = image_tag @incident.images.first, class: 'd-block w-100'
+                br
+                /= render partial: 'layouts/item/show/buttons/carousel_delete', locals: {image: image}
+
+              - @incident.images.drop(1).each do |image|
+                / need active to make modal appear
+                .carousel-item
+                  = image_tag image, class: 'd-block w-100'
+                  br
+                  /= render partial: 'layouts/item/show/buttons/carousel_delete', locals: {image: image}
+              
+        a.carousel-control-prev data-slide="prev" href="#image_controls" role="button" 
+          span.carousel-control-prev-icon
+        a.carousel-control-next data-slide="next" href="#image_controls" role="button" 
+          span.carousel-control-next-icon
+
+        
+
+        
+
+javascript:
+
+  addEventListener("direct-upload:initialize", event => {
+    const { target, detail } = event
+    const { id, file } = detail
+    target.insertAdjacentHTML("beforebegin", `
+      <div id="direct-upload-${id}" class="direct-upload direct-upload--pending">
+        <div id="direct-upload-progress-${id}" class="direct-upload__progress" style="width: 0%"></div>
+        <span class="direct-upload__filename">${file.name}</span>
+      </div>
+    `)
+  })
+   
+  addEventListener("direct-upload:start", event => {
+    const { id } = event.detail
+    const element = document.getElementById(`direct-upload-${id}`)
+    element.classList.remove("direct-upload--pending")
+  })
+   
+  addEventListener("direct-upload:progress", event => {
+    const { id, progress } = event.detail
+    const progressElement = document.getElementById(`direct-upload-progress-${id}`)
+    progressElement.style.width = `${progress}%`
+  })
+   
+  addEventListener("direct-upload:error", event => {
+    event.preventDefault()
+    const { id, error } = event.detail
+    const element = document.getElementById(`direct-upload-${id}`)
+    element.classList.add("direct-upload--error")
+    element.setAttribute("title", error)
+  })
+   
+  addEventListener("direct-upload:end", event => {
+    const { id } = event.detail
+    const element = document.getElementById(`direct-upload-${id}`)
+    element.classList.add("direct-upload--complete")
+  })              
+
+
+
+css:
+
+  .direct-upload {
+    display: inline-block;
+    position: relative;
+    padding: 2px 4px;
+    margin: 0 3px 3px 0;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    font-size: 11px;
+    line-height: 13px;
+  }
+   
+  .direct-upload--pending {
+    opacity: 0.6;
+  }
+   
+  .direct-upload__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0.2;
+    background: #0076ff;
+    transition: width 120ms ease-out, opacity 60ms 60ms ease-in;
+    transform: translate3d(0, 0, 0);
+  }
+   
+  .direct-upload--complete .direct-upload__progress {
+    opacity: 0.4;
+  }
+   
+  .direct-upload--error {
+    border-color: red;
+  }
+   
+  input[type=file][data-direct-upload-url][disabled] {
+    display: none;
+  }

@@ -1,0 +1,7 @@
+.p-4
+  .text-center
+    h4 = t 'users'
+    br
+
+  .card
+    = render partial: 'users/user', collection: @users, as: :user

@@ -1,0 +1,12 @@
+.p-4
+  = @user.name
+  = @user.address
+
+
+  = simple_form_for(@user) do |f|
+
+    .form-inputs
+      = f.input :tag_list, label: t('tags')
+      
+    .form-actions
+      = f.button :submit

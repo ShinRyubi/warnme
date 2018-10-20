@@ -1,0 +1,32 @@
+.pb-4
+  nav.navbar.fixed-top.navbar-expand-lg.navbar-light
+    = link_to 'DIRA', root_path
+
+    = link_to '#', data: {toggle: "collapse", target: "#nav_content"}, aria: {controls: "nav_content", expanded: "false"}, class: 'navbar-toggler navbar-toggler-right'
+      span
+      span
+      span
+
+
+    #nav_content.collapse.navbar-collapse     
+
+      ul.navbar-nav.mr-auto
+        | &nbsp; &nbsp; &nbsp;
+        li.nav-item
+          - if I18n.locale == :en
+            = link_to_unless_current "Tagalog", locale: "tl", class: "nav-link"
+          
+          - else
+            = link_to_unless_current "English", locale: "en", class: "nav-link"
+
+        li.nav-item
+          = link_to 'Incidents', incidents_path, class: "nav-link"
+        li.nav-item
+          = link_to 'Users', users_path, class: "nav-link"
+
+      ul.navbar-nav
+        li.nav-item
+          = link_to t('login'), new_user_session_path, class: "btn btn-success"
+        | &nbsp; &nbsp;
+        li.nav-item
+          = link_to t('signup'), new_user_registration_path, class: "btn btn-success"

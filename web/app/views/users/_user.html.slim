@@ -1,0 +1,23 @@
+.card
+  .p-2
+    .row
+      .col-4
+        = image_tag(user.photo, class: 'img-fluid rounded rounded-circle')
+        /, user_path(user)
+      .col-8
+        b Name
+        | &nbsp; #{user.name}
+        br
+        b City
+        | &nbsp; #{user.city}
+        br
+        b Address
+        | &nbsp; #{user.address}
+        br
+        b Info
+        | &nbsp; #{user.info}
+        br
+        small = user.id
+
+      
+        /small= link_to user.name, root_path

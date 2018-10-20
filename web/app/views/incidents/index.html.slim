@@ -1,0 +1,24 @@
+.p-4
+  .text-center
+    h4 = t 'incidents'
+    br
+
+  - if current_user.present?
+    = simple_form_for Incident.new, remote: true do |f|
+
+      .card.bg-info.p-4
+        .form-inputs
+          = f.input :name
+          = f.input :content
+          = f.input :address
+          /= f.input :photo, label: false
+          = f.hidden_field :user_id, value: current_user.id
+          = f.hidden_field :user_pic, value: current_user.photo
+          /= f.select 
+        .form-actions
+          = f.button :submit
+
+  
+  hr
+  .posts
+    = render partial: 'incidents/incident', collection: @incidents, as: :incident

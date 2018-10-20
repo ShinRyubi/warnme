@@ -1,0 +1,19 @@
+.p-4
+  .text-center
+    h4 Welcome to DIRA
+    br
+
+  - if current_user.present?
+    = simple_form_for Post.new, remote: true do |f|
+
+      .form-inputs
+        = f.input :content, label: false
+        = f.hidden_field :user_id, value: current_user.id
+        = f.hidden_field :user_pic, value: current_user.photo
+        
+      .form-actions
+        = f.button :submit
+
+  hr
+  .posts
+    = render partial: 'posts/post', collection: @posts, as: :post

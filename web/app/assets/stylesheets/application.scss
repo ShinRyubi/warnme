@@ -1,0 +1,358 @@
+@import "bootstrap";
+@import "toastr";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "direct_uploads";
+
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,600');
+
+body {
+  background-color: #e0f3ff;
+  font-family: 'Cabin', sans-serif;
+}
+
+a {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* for mailers */
+footer {
+  -webkit-box-shadow: 0px -4px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow:    0px -4px 3px rgba(0, 0, 0, 0.2);
+  box-shadow:         0px -4px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+nav.navbar {
+  background-color: #e0f3ff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  font-weight: 500;
+}
+
+
+.navbar-toggler {
+  background: white;
+  outline: none;
+}
+
+nav.navbar .navbar-toggler span {
+  width: 25px;
+  margin: 5px;
+  display: block;
+  height: 2px;
+  background: #333;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+
+.modal.show  {
+    display:flex!important;
+    flex-direction:column;
+    justify-content:center;
+    align-content:center;
+    align-items: flex-start;
+  }
+
+
+
+/* for white tabs */
+.active {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* wraps text within button */
+.btn { white-space: normal; }
+
+.btn-shadow {
+  -webkit-box-shadow: 0 10px 20px rgba(109, 109, 109, 0.16) !important;
+  box-shadow: 0 10px 20px rgba(109, 109, 109, 0.16) !important;
+}
+
+.btn-gradient {
+  background-color: #5989e5;
+  background-image: -webkit-gradient(linear, left top, right top, from(#007bff), to(#37cfdc));
+  background-image: linear-gradient(to right, #007bff, #37cfdc);
+  border: none !important;
+  text-transform: uppercase;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: all 0.3s !important;
+  transition: all 0.3s !important;
+}
+
+.btn.btn-gradient:hover, section.browser .nav-tabs span.btn.number:hover {
+  opacity: 0.85;
+}
+
+
+.btn-indigo{
+  color: #fff;
+  background-color: #6610f2;
+  border-color: #6610f2;
+}
+
+.btn-pink {
+  color: #fff;
+  background-color: #e83e8c;
+  border-color: #e83e8c;
+}
+
+.btn-orange {
+  color: #fff;
+  background-color: #fd7e14;
+  border-color: #fd7e14;
+}
+
+.btn-teal {
+  color: #fff;
+  background-color: #20c997;
+  border-color: #20c997;
+}
+
+.flex_width {max-width: 200px; min-width: 200px;}
+
+.flex_width_wide {max-width: 350px; min-width: 350px;}
+
+.card { box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19); }
+
+.originator_circle {border:4px solid #5bc0de;}
+
+.recipient_circle {border:4px solid #ffbb33;}
+
+.reviews {
+  padding: 15px 0;
+  .star-rating {
+    padding-bottom: 8px;
+  }
+}
+
+
+.wordwrap {word-wrap: break-word;}
+
+
+.footer_sticky { 
+  width: 100%;
+  position: fixed; bottom: 0%; 
+}
+
+
+/*1rem = 16px*/
+/* Small devices .modal-sm {max-width: 200px;} */
+@media (min-width: 320px) {  
+
+  .card-columns {
+      -webkit-column-count:1;
+      -moz-column-count:1;
+      column-count:1;
+  }
+
+  .modal {
+    position: absolute;
+    overflow: visible;
+  }
+
+  #feed_accordion {
+    display: none;
+  }
+
+  #resume_pic {
+    display: none;
+  }
+
+  #featured_users {
+    display: none;
+  }
+
+  #featured_groups {
+    display: none;
+  }
+
+  #contract-submit-lg {
+    display: none;
+  }
+
+  #contract-submit-xs {
+    display: block;
+  }
+
+  #Carousel {
+    display: none;
+  }
+}
+
+
+
+@media (min-width: 544px) {  
+  .card-columns {
+    -webkit-column-count:2;
+    -moz-column-count:2;
+    column-count:2;
+  }
+
+  #feed_accordion {
+    display: none;
+  }
+
+  #featured_users {
+    display: none;
+  }
+
+  #featured_groups {
+    display: none;
+  }
+
+  #Carousel {
+    display: none;
+  }
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+// @media (min-width: 768px) {  
+//   .small {font-size: 13px;}
+//   .card-columns {
+//       -webkit-column-count:2;
+//       -moz-column-count:2;
+//       column-count:2;
+//   }
+// } 
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  
+  .card-columns {
+      -webkit-column-count:3;
+      -moz-column-count:3;
+      column-count:3;
+  }
+
+  #leaderboard {
+    display: block;
+  }
+
+  #feed_accordion {
+    display: block;
+  }
+
+  #resume_pic {
+    display: block;
+  }
+
+  #featured_users {
+    display: block;
+  }
+
+  #featured_groups {
+    display: block;
+  }
+
+  #contract-submit-lg {
+    display: block;
+  }
+
+  #contract-submit-xs {
+    display: none;
+  }
+  
+  #Carousel {
+    display: block;
+  }
+}
+
+
+/* ------- GOOGLE MAP FOR RESOURCES -------*/
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. 
+ #description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+*/
+#map {
+  height: 75%;
+}
+
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+
+
+.btn {
+  font-weight: bold;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
